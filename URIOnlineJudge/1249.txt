@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Problem1249 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		while (scan.hasNextLine()) {
+
+			String a = scan.nextLine();
+			char[] ac = a.toCharArray();
+
+			for (int i = 0; i < a.length(); i++) {
+				boolean letter = Character.isLetter(ac[i]);
+				boolean up = Character.isUpperCase(ac[i]);
+
+				if (letter) {
+					ac[i] = (char) ((int)(ac[i]) + 13);
+					if ((int)ac[i] > (int)'z' || ((int)ac[i] > (int)'Z' && up)) {
+						ac[i] = (char) ((int)(ac[i]) - 26);
+					}
+				}
+				System.out.print(ac[i]);
+			}
+			System.out.print("\n");
+		}
+
+	}
+
+}

@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Problem1171 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int a = scan.nextInt();
+		int[] num = new int[2001];
+
+		for (int i = 0; i < a; i++) {
+			num[scan.nextInt()]++;
+		}
+
+		for (int i = 0; i < 2001; i++) {
+			if (num[i] > 0) {
+				System.out.println(i + " aparece " + num[i] + " vez(es)");
+			}
+		}
+	}
+}

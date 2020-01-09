@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Problem1024 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int tc = Integer.parseInt(scan.nextLine());
+
+		for (int i = 0; i < tc; i++) {
+			String word = scan.next();
+			int length = word.length();
+			int[] size = new int[length];
+
+			for (int j = 0; j < length; j++) {
+				size[j] = word.charAt(j);
+				if (size[j] >= 65 && size[j] <= 90 || size[j] >= 97 && size[j] <= 122) {
+					size[i] += 3;
+				}
+			}
+			int length2 = length - 1;
+			for (int j = 0; j < length / 2; j++) {
+				int swap = size[j];
+				size[j] = size[length2];
+				size[length2] = swap;
+				length2 -= 1;
+			}
+			for (int j = length / 2; j < length; j++) {
+				size[j] -= 1;
+			}
+			for (int j = 0; j < length; j++) {
+				System.out.print((char) size[j]);
+			}
+			System.out.println();
+		}
+	}
+}

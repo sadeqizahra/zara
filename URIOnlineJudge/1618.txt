@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class Problem1618 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int tc = scan.nextInt();
+
+		for (int i = 0; i < tc; i++) {
+			int x1 = scan.nextInt();
+			int y1 = scan.nextInt();
+			int x2 = scan.nextInt();
+			int y2 = scan.nextInt();
+			int x3 = scan.nextInt();
+			int y3 = scan.nextInt();
+			int x4 = scan.nextInt();
+			int y4 = scan.nextInt();
+			int rx = scan.nextInt();
+			int ry = scan.nextInt();
+
+			if ((rx >= x1 && rx <= x2 && rx >= x4 && rx <= x3 && ry >= y1 && ry <= y4 && ry >= y2 && ry <= y3)) {
+				System.out.println("1");
+			} else {
+				System.out.println("0");
+			}
+		}
+	}
+}

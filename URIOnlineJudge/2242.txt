@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Problem2242 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		String word = scan.next();
+		List<Character> l = new ArrayList<>(word.length());
+
+		for (int i = 0; i < word.length(); i++) {
+			char charat = word.charAt(i);
+
+			if (charat == 'a' || charat == 'e' || charat == 'i' || charat == 'o' || charat == 'u') {
+				l.add(charat);
+			}
+		}
+		boolean a = true;
+		for (int i = 0, j = l.size() - 1; i < j; i++, j--) {
+			if (l.get(i) != l.get(j)) {
+				a = false;
+				break;
+			}
+		}
+		System.out.println(a ? "S" : "N");
+	}
+
+}

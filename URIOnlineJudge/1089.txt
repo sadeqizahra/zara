@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Problem1089 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int[] a = new int[10000];
+		int n = scan.nextInt();
+		int x = 0;
+
+		while (n != 0) {
+			x = 0;
+			for (int i = 0; i < n; i++) {
+				a[i] = scan.nextInt();
+			}
+			for (int i = 0; i < n; i++) {
+				if (a[i] < a[(i + 1) % n]) {
+					if (a[(i + 1) % n] > a[(i + 2) % n]) {
+						x++;
+					}
+				}
+				if (a[i] > a[(i + 1) % n]) {
+					if (a[(i + 1) % n] < a[(i + 2) % n]) {
+						x++;
+					}
+				}
+			}
+			System.out.println(x);
+			n = scan.nextInt();
+		}
+	}
+}

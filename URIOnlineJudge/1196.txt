@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Problem1196 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		String l = "`1234567890-=QWERTYUIOP[]ASDFGGHJKL;'ZXCVBNM,./";
+		char[] lc = l.toCharArray();
+
+		while (scan.hasNext()) {
+			String w = scan.nextLine();
+			char[] wc = w.toCharArray();
+
+			for (char answer : wc) {
+				int index = w.indexOf(answer);
+
+				if (index > 0) {
+					System.out.print(lc[index - 1]);
+				} else {
+					System.out.print(answer);
+				}
+			}
+			System.out.println();
+		}
+	}
+}

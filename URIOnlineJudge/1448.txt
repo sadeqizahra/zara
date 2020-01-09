@@ -1,0 +1,59 @@
+import java.util.*;
+
+public class Problem1448 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int tc = Integer.parseInt(scan.nextLine());
+
+		for (int i = 1; i <= tc; i++) {
+			boolean empate = true;
+			boolean win1 = false;
+			boolean win2 = false;
+			String x = scan.nextLine();
+			String x1 = scan.nextLine();
+			String x2 = scan.nextLine();
+			int num1 = 0;
+			int num2 = 0;
+
+			for (int j = 0; j < x.length(); j++) {
+				boolean team1 = false;
+				boolean team2 = false;
+
+				if (x.charAt(j) == x1.charAt(j)) {
+					num1++;
+					team1 = true;
+				}
+				if (x.charAt(j) == x2.charAt(j)) {
+					num2++;
+					team2 = true;
+				}
+				if (team1 && !team2 && empate) {
+					win1 = true;
+					empate = false;
+				}
+				if (!team1 && team2 && empate) {
+					win2 = true;
+					empate = false;
+				}
+			}
+			System.out.println("Instancia " + i);
+
+			if (num1 > num2) {
+				System.out.println("time 1");
+			} else if (num1 < num2) {
+				System.out.println("time 2");
+			} else {
+				if (win1) {
+					System.out.println("time 1");
+				} else if (win2) {
+					System.out.println("time 2");
+				} else if (empate) {
+					System.out.println("empate");
+				}
+			}
+			System.out.println();
+		}
+	}
+}

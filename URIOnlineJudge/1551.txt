@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class Problem1551 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		char[] alphabet = new char[26];
+		for (int i = 0, j = 97; i < alphabet.length; i++, j++) {
+			alphabet[i] = (char) j;
+		}
+
+		int n = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < n; i++) {
+			boolean[] l = new boolean[26];
+			String a = scan.nextLine();
+			char[] ac = a.toCharArray();
+
+			for (int j = 0; j < a.length(); j++) {
+				for (int k = 0; k < alphabet.length; k++) {
+					if (ac[j] == alphabet[k]) {
+						l[k] = true;
+					}
+				}
+			}
+			int c = 0;
+			for (int m = 0; m < l.length; m++) {
+				if (l[m]) {
+					c++;
+				}
+			}
+			if (c == 26) {
+				System.out.println("frase completa");
+			} else if (c > 13) {
+				System.out.println("frase quase completa");
+			} else {
+				System.out.println("frase mal elaborada");
+			}
+		}
+
+	}
+}

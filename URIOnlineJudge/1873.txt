@@ -1,0 +1,44 @@
+import java.util.*;
+
+public class Problem1873 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int tc = scan.nextInt();
+		String rajesh;
+		String sheldon;
+
+		for (int i = 0; i < tc; i++) {
+			rajesh = scan.next();
+			sheldon = scan.next();
+
+			if (rajesh.equals(sheldon)) {
+				System.out.println("empate");
+			} else if (rajesh.equals("tesoura") && sheldon.equals("papel")) {
+				System.out.println("rajesh");
+			} else if (rajesh.equals("papel") && sheldon.equals("pedra")) {
+				System.out.println("rajesh");
+			} else if (rajesh.equals("lagarto") && sheldon.equals("pedra")) {
+				System.out.println("rajesh");
+			} else if (rajesh.equals("lagarto") && sheldon.equals("spock")) {
+				System.out.println("rajesh");
+			} else if (rajesh.equals("spock") && sheldon.equals("tesoura")) {
+				System.out.println("rajesh");
+			} else if (rajesh.equals("tesoura") && sheldon.equals("lagarto")) {
+				System.out.println("rajesh");
+			} else if (rajesh.equals("lagarto") && sheldon.equals("papel")) {
+				System.out.println("rajesh");
+			} else if (rajesh.equals("papel") && sheldon.equals("spock")) {
+				System.out.println("rajesh");
+			} else if (rajesh.equals("spock") && sheldon.equals("pedra")) {
+				System.out.println("rajesh");
+			} else if (rajesh.equals("pedra") && sheldon.equals("tesoura")) {
+				System.out.println("rajesh");
+			} else {
+				System.out.println("sheldon");
+			}
+		}
+	}
+
+}

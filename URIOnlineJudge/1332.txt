@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class Problem1607 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		int tc = scan.nextInt();
+		String word1;
+		String word2;
+		int sum;
+		
+		for (int i=0; i<tc ; i++) {
+			word1=scan.next();
+			word2=scan.next();
+			sum=0;
+			
+			for (int j=0; j<word1.length(); j++) {
+				if (word1.charAt(j)>word2.charAt(j)) {
+					sum += 26 - word1.charAt(j)+word2.charAt(j);
+				}
+				else if (word1.charAt(j)<word2.charAt(j)) {
+					sum += word2.charAt(j) - word1.charAt(j);
+				}
+			}
+			System.out.println(sum);
+			
+		}
+
+	}
+
+}

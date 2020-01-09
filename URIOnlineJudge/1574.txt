@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class Problem1574 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int a = scan.nextInt();
+		int index, answer;
+
+		for (int i = 0; i < a; i++) {
+			int b = scan.nextInt();
+			int[] array = new int[101];
+			answer = 0;
+
+			for (int j = 0; j <= b; j++) {
+				String word = scan.nextLine();
+
+				for (int k = 0; k < word.length(); k++) {
+					if (word.equals("RIGHT")) {
+						array[j] = 1;
+					} else if (word.equals("LEFT")) {
+						array[j] = -1;
+					} else {
+						index = Integer.parseInt(word.substring(8));
+						array[j] = array[index];
+					}
+				}
+				answer += array[j];
+			}
+			System.out.println(answer);
+		}
+	}
+}

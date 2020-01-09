@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class Problem1285 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int a, b, digit, answer;
+		int[] num = new int[4];
+
+		while (scan.hasNext()) {
+			int x = scan.nextInt();
+			int y = scan.nextInt();
+			answer = 0;
+
+			for (int i = x; i <= y; i++) {
+				a = i;
+				b = 0;
+				digit = 0;
+
+				while (a != 0) {
+					num[digit] = a % 10;
+					a /= 10;
+					digit++;
+				}
+				for (int j = 0; j < digit; j++) {
+					for (int k = j + 1; k < digit; k++) {
+						if (num[j] == num[k]) {
+							b = 2;
+						}
+					}
+				}
+				if (b == 0) {
+					answer++;
+				}
+			}
+			System.out.println(answer);
+		}
+	}
+}

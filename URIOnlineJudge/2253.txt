@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class Problem2253 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner (System.in);
+		
+		while (scan.hasNext()) {
+			
+			boolean lowUpNum = false;
+			boolean punctuation = true;
+			boolean size = false;
+			boolean up = false;
+			boolean low = false;
+			boolean digit = false;
+			
+			String password = scan.nextLine();
+			
+			if (password.length()>=6 && password.length()<=32) {
+				size = true;
+			}
+			
+			for (int i=0; i<password.length(); i++) {
+				
+				if (Character.isUpperCase(password.charAt(i))) {
+					up = true;
+				}
+				if (Character.isLowerCase(password.charAt(i))) {
+					low = true;
+				}
+				if (Character.isDigit(password.charAt(i))) {
+					digit = true;
+				}
+				if (!Character.isLetterOrDigit(password.charAt(i))) {
+					punctuation = false;
+				}
+			}
+			if (up && low && digit) {
+				lowUpNum = true;
+			}
+			if (lowUpNum && punctuation && size) {
+				System.out.println("Senha valida.");
+			}else {
+				System.out.println("Senha invalida.");
+			}
+			
+		}
+
+	}
+
+}

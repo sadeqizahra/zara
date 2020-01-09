@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class Problem1104 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int[] alice = new int[10001];
+		int[] betty = new int[10001];
+		int a, b, num, alice1, betty1;
+
+		while (!((a = scan.nextInt()) == 0 || (b = scan.nextInt()) == 0)) {
+			alice1 = 0;
+			betty1 = 0;
+
+			for (int i = 0; i < a; i++) {
+				num = scan.nextInt();
+				alice[num]++;
+			}
+			for (int i = 0; i < b; i++) {
+				num = scan.nextInt();
+				betty[num]++;
+			}
+			for (int i = 0; i < alice.length; i++) {
+				if (alice[i] != 0 && betty[i] == 0) {
+					alice1++;
+				} else if (alice[i] == 0 && betty[i] != 0) {
+					betty1++;
+				}
+			}
+			if (alice1 < betty1) {
+				System.out.println(alice1);
+			} else {
+				System.out.println(betty1);
+			}
+		}
+	}
+}

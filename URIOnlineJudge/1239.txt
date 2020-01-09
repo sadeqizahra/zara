@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Problem1239 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		while (scan.hasNextLine()) {
+			String a = scan.nextLine();
+			char[] ac = a.toCharArray();
+			int x = 0;
+			int y = 0;
+
+			for (int i = 0; i < a.length(); i++) {
+
+				if (ac[i] == '_') {
+					if (x % 2 == 0) {
+						System.out.print("<i>");
+					} else {
+						System.out.print("</i>");
+					}
+					x++;
+				} else if (ac[i] == '*') {
+					if (y % 2 == 0) {
+						System.out.print("<b>");
+					} else {
+						System.out.print("</b>");
+					}
+					y++;
+				} else {
+					System.out.print(ac[i]);
+				}
+			}
+			System.out.println();
+		}
+
+	}
+
+}

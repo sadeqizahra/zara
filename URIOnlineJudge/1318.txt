@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class Problem1318 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int a = scan.nextInt();
+		int b = scan.nextInt();
+		int answer;
+
+		while (a != 0 || b != 0) {
+			int[] c = new int[b];
+			answer = 0;
+
+			for (int i = 0; i < b; i++) {
+				c[scan.nextInt()]++;
+			}
+			for (int i = 0; i < c.length; i++) {
+				if (c[i] > 1) {
+					answer++;
+				}
+			}
+			System.out.println(answer);
+			a = scan.nextInt();
+			b = scan.nextInt();
+		}
+	}
+}

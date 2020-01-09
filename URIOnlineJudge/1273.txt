@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class Problem1273 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int n = 1;
+		int c = 0;
+		while (n != 0) {
+			int max = 0;
+			n = Integer.parseInt(scan.nextLine());
+			if (n == 0) {
+				continue;
+			}
+			String[] x = new String[n];
+			for (int i = 0; i < x.length; i++) {
+				x[i] = scan.nextLine();
+				if (x[i].length() > max) {
+					max = x[i].length();
+				}
+			}
+			for (int i = 0; i < x.length; i++) {
+				while (x[i].length() != max) {
+					x[i] = " " + x[i];
+				}
+				if (c == 0) {
+					System.out.print(x[i] + "\n");
+				} else {
+					System.out.print("\n" + x[i]);
+				}
+			}
+			if (c != 0) {
+				System.out.println();
+			}
+			c++;
+		}
+
+	}
+
+}

@@ -1,0 +1,22 @@
+import java.util.*;
+
+public class Problem2023 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		String names = scan.nextLine();
+		String last = names.toLowerCase();
+
+		while (scan.hasNext()) {
+			String x = scan.nextLine();
+			String y = x.toLowerCase();
+
+			if (last.compareTo(y) < 0) {
+				last = y;
+				names = x;
+			}
+		}
+		System.out.print(names + "\n");
+	}
+}

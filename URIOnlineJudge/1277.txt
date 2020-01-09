@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class Problem1277 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int tc = Integer.parseInt(scan.nextLine());
+		for (int i = 0; i < tc; i++) {
+			int n = scan.nextInt();
+			String[] names = new String[n];
+			boolean[] denay = new boolean[n];
+			for (int a = 0; a < n; a++) {
+				names[a] = scan.next();
+			}
+			for (int j = 0; j < n; j++) {
+				int p = 0;
+				int a = 0;
+				String partic = scan.next();
+				char[] pc = partic.toCharArray();
+
+				for (int k = 0; k < pc.length; k++) {
+					if (pc[k] == 'P') {
+						p++;
+					}
+					if (pc[k] == 'A') {
+						a++;
+					}
+				}
+				if ((p / 3) < a) {
+					denay[j] = true;
+				}
+			}
+			int num = 0;
+			for (int j = 0; j < denay.length; j++) {
+				if (denay[j] && num == 0) {
+					num++;
+					System.out.print(names[j]);
+				} else if (denay[j] && num != 0) {
+					System.out.print(" " + names[j]);
+				}
+			}
+			System.out.println();
+		}
+
+	}
+
+}

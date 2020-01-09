@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Problem1607 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int tc = Integer.parseInt(scan.nextLine());
+
+		for (int i = 0; i < tc; i++) {
+			String a = scan.next();
+			String b = scan.next();
+			int sum = 0;
+
+			for (int j = 0; j < a.length(); j++) {
+				if (a.charAt(j) > b.charAt(j)) {
+					sum += 26 - a.charAt(j) + b.charAt(j);
+				} else if (a.charAt(j) < b.charAt(j)) {
+					sum += b.charAt(j) - a.charAt(j);
+				}
+			}
+			System.out.println(sum);
+		}
+	}
+}

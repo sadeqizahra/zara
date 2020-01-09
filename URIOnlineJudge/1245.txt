@@ -1,0 +1,52 @@
+import java.util.*;
+
+public class Problem1245 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int a;
+		int b;
+		int answer;
+		char letter;
+		int[] left = new int[61];
+		int[] right = new int[61];
+
+		while (scan.hasNext()) {
+			for (int i = 30; i < 61; i++) {
+				left[i] = 0;
+				right[i] = 0;
+			}
+			a = scan.nextInt();
+			answer = 0;
+
+			for (int i = 1; i <= a; i++) {
+				b = scan.nextInt();
+				letter = scan.next().charAt(0);
+
+				if (letter == 'D') {
+					right[b]++;
+					if (left[b] != 0) {
+						do {
+							answer++;
+							left[b]--;
+							right[b]--;
+						} while (left[b] != 0 && right[b] != 0);
+					}
+				} else {
+					left[b]++;
+					if (right[b] != 0) {
+						do {
+							answer++;
+							left[b]--;
+							right[b]--;
+						} while (left[b] != 0 && right[b] != 0);
+					}
+				}
+			}
+			System.out.println(answer);
+		}
+
+	}
+
+}

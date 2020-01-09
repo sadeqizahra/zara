@@ -1,0 +1,22 @@
+import java.io.PrintWriter;
+import java.util.*;
+
+public class Problem1120 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		String number;
+
+		while (!(number = scan.nextLine()).equals("0 0")) {
+			String[] p = number.split("\\s");
+			String m = p[0];
+			String n = p[1];
+			String number1 = n.replace(m, "");
+			number1 = number1.replaceFirst("0*", "");
+			System.out.println(number1.length() > 0 ? number1 : 0);
+		}
+
+	}
+
+}

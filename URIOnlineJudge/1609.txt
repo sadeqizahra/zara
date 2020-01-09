@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Problem1609 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int a = scan.nextInt();
+		int answer;
+
+		for (int i = 0; i < a; i++) {
+			int b = scan.nextInt();
+			int[] c = new int[b + 1];
+			answer = 0;
+
+			for (int j = 0; j < b; j++) {
+				c[scan.nextInt()]++;
+			}
+			for (int k = 0; k < c.length; k++) {
+				if (c[k] > 0) {
+					answer++;
+				}
+			}
+			System.out.println(answer);
+		}
+	}
+}

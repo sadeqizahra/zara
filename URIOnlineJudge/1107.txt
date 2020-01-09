@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class Problem1107 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		String a;
+
+		while (!(a = scan.nextLine()).equals("0 0")) {
+			int b = Integer.parseInt(a.split(" ")[0]);
+			String[] num = scan.nextLine().split(" ");
+			int[] element = new int[num.length];
+			int answer = 0;
+
+			for (int i = 0; i < num.length; i++) {
+				element[i] = Integer.parseInt(num[i]) - 1;
+			}
+			b -= 1;
+			for (int i = b; i >= 0; i--) {
+				boolean test = false;
+				for (int tmp : element) {
+					if (!test && tmp < i) {
+						test = true;
+						answer++;
+					} else if (tmp >= i) {
+						test = false;
+					}
+				}
+			}
+			System.out.println(answer);
+		}
+	}
+}

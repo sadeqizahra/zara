@@ -1,0 +1,50 @@
+import java.util.*;
+
+public class Problem1278 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int c = 0;
+
+		while (true) {
+			int max = 0;
+			int n = scan.nextInt();
+			if (n == 0) {
+				break;
+			}
+			String[] line = new String[n];
+			scan.nextLine();
+			for (int i = 0; i < n; i++) {
+				ArrayList<String> list = new ArrayList<>();
+				line[i] = scan.nextLine();
+				Scanner scan2 = new Scanner(line[i]);
+				while (scan2.hasNext()) {
+					String x = scan2.next();
+					list.add(x);
+				}
+				line[i] = list.get(0);
+				for (int j = 1; j < list.size(); j++) {
+					line[i] = line[i] + " " + list.get(j);
+				}
+				if (line[i].length() > max) {
+					max = line[i].length();
+				}
+			}
+			for (int i = 0; i < n; i++) {
+				while (line[i].length() != max) {
+					line[i] = " " + line[i];
+				}
+				if (c == 0) {
+					System.out.print(line[i] + "\n");
+				} else {
+					System.out.print("\n" + line[i]);
+				}
+			}
+			if (c != 0) {
+				System.out.println();
+			}
+			c++;
+		}
+	}
+}

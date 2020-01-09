@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class Problem1255 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		char[] alphabet = new char[26];
+		for (int i = 0, j = 97; i < alphabet.length; i++, j++) {
+			alphabet[i] = (char) j;
+		}
+		int n = Integer.parseInt(scan.nextLine());
+		for (int k = 0; k < n; k++) {
+			String a = scan.nextLine();
+			char[] ac = a.toCharArray();
+			int[] num = new int[26];
+			for (int l = 0; l < a.length(); l++) {
+				for (int m = 0; m < alphabet.length; m++) {
+					ac[l] = Character.toLowerCase(ac[l]);
+					if (ac[l] == alphabet[m]) {
+						num[m]++;
+					}
+				}
+			}
+			int max = max(num);
+			for (int i = 0; i < alphabet.length; i++) {
+				if (num[i] == max) {
+					System.out.print(alphabet[i]);
+				}
+			}
+			System.out.println();
+		}
+
+	}
+
+	private static int max(int[] num) {
+		int max = num[0];
+		for (int i = 0; i < num.length; i++) {
+			if (num[i] > max) {
+				max = num[i];
+			}
+		}
+		return max;
+	}
+
+}

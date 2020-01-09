@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Problem1253 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int tc = Integer.parseInt(scan.nextLine());
+
+		for (int i = 0; i < tc; i++) {
+			String word = scan.next();
+			char[] wc = word.toCharArray();
+			int x = scan.nextInt();
+
+			for (int j = 0; j < word.length(); j++) {
+				if (wc[j] < 'A' + x) {
+					wc[j] = (char) ('Z' - x + (wc[j] - 'A') + 1);
+				} else {
+					wc[j] = (char) (word.charAt(j) - x);
+				}
+			}
+			System.out.println(wc);
+		}
+	}
+}
